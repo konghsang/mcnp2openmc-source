@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<settings>
+  <run_mode>fixed source</run_mode>
+  <particles>10000000</particles>
+  <batches>1</batches>
+  <source particle="neutron" strength="0.7" type="independent">
+    <space type="box">
+      <parameters>0.0 0.0 0.0 1.0 1.0 1.0</parameters>
+    </space>
+  </source>
+  <source particle="neutron" strength="0.1" type="independent">
+    <space type="box">
+      <parameters>-1.0 0.0 0.0 0.0 1.0 1.0</parameters>
+    </space>
+  </source>
+  <source particle="neutron" strength="0.1" type="independent">
+    <space type="box">
+      <parameters>-1.0 -1.0 0.0 0.0 0.0 1.0</parameters>
+    </space>
+  </source>
+  <source particle="neutron" strength="0.1" type="independent">
+    <space type="box">
+      <parameters>0.0 -1.0 0.0 1.0 0.0 1.0</parameters>
+    </space>
+  </source>
+  <output>
+    <summary>true</summary>
+    <tallies>true</tallies>
+  </output>
+  <track max_tracks="1000000"/>
+</settings>

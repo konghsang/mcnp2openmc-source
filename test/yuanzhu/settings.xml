@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<settings>
+  <run_mode>fixed source</run_mode>
+  <particles>100000</particles>
+  <batches>1</batches>
+  <source particle="neutron" strength="0.05" type="independent">
+    <space origin="0.0 0.0 0.0" type="cylindrical">
+      <r parameters="0.0 2" type="uniform"/>
+      <phi parameters="0.0 6.283185307179586" type="uniform"/>
+      <z parameters="-2.0 -1.0" type="uniform"/>
+    </space>
+    <angle type="isotropic"/>
+    <energy type="discrete">
+      <parameters>14100000.0 1.0</parameters>
+    </energy>
+  </source>
+  <source particle="neutron" strength="0.05" type="independent">
+    <space origin="0.0 0.0 0.0" type="cylindrical">
+      <r parameters="0.0 2" type="uniform"/>
+      <phi parameters="0.0 6.283185307179586" type="uniform"/>
+      <z parameters="-1.0 1.0" type="uniform"/>
+    </space>
+    <angle type="isotropic"/>
+    <energy type="discrete">
+      <parameters>14100000.0 1.0</parameters>
+    </energy>
+  </source>
+  <source particle="neutron" strength="0.05" type="independent">
+    <space origin="0.0 0.0 0.0" type="cylindrical">
+      <r parameters="0.0 2" type="uniform"/>
+      <phi parameters="0.0 6.283185307179586" type="uniform"/>
+      <z parameters="1.0 2.0" type="uniform"/>
+    </space>
+    <angle type="isotropic"/>
+    <energy type="discrete">
+      <parameters>14100000.0 1.0</parameters>
+    </energy>
+  </source>
+  <source particle="neutron" strength="0.05" type="independent">
+    <space origin="0.0 0.0 0.0" type="cylindrical">
+      <r parameters="2 3" type="uniform"/>
+      <phi parameters="0.0 6.283185307179586" type="uniform"/>
+      <z parameters="-2.0 -1.0" type="uniform"/>
+    </space>
+    <angle type="isotropic"/>
+    <energy type="discrete">
+      <parameters>14100000.0 1.0</parameters>
+    </energy>
+  </source>
+  <source particle="neutron" strength="0.05" type="independent">
+    <space origin="0.0 0.0 0.0" type="cylindrical">
+      <r parameters="2 3" type="uniform"/>
+      <phi parameters="0.0 6.283185307179586" type="uniform"/>
+      <z parameters="-1.0 1.0" type="uniform"/>
+    </space>
+    <angle type="isotropic"/>
+    <energy type="discrete">
+      <parameters>14100000.0 1.0</parameters>
+    </energy>
+  </source>
+  <source particle="neutron" strength="0.05" type="independent">
+    <space origin="0.0 0.0 0.0" type="cylindrical">
+      <r parameters="2 3" type="uniform"/>
+      <phi parameters="0.0 6.283185307179586" type="uniform"/>
+      <z parameters="1.0 2.0" type="uniform"/>
+    </space>
+    <angle type="isotropic"/>
+    <energy type="discrete">
+      <parameters>14100000.0 1.0</parameters>
+    </energy>
+  </source>
+  <source particle="neutron" strength="0.05" type="independent">
+    <space origin="0.0 0.0 0.0" type="cylindrical">
+      <r parameters="3 5.0" type="uniform"/>
+      <phi parameters="0.0 6.283185307179586" type="uniform"/>
+      <z parameters="-2.0 -1.0" type="uniform"/>
+    </space>
+    <angle type="isotropic"/>
+    <energy type="discrete">
+      <parameters>14100000.0 1.0</parameters>
+    </energy>
+  </source>
+  <source particle="neutron" strength="0.6" type="independent">
+    <space origin="0.0 0.0 0.0" type="cylindrical">
+      <r parameters="3 5.0" type="uniform"/>
+      <phi parameters="0.0 6.283185307179586" type="uniform"/>
+      <z parameters="-1.0 1.0" type="uniform"/>
+    </space>
+    <angle type="isotropic"/>
+    <energy type="discrete">
+      <parameters>14100000.0 1.0</parameters>
+    </energy>
+  </source>
+  <source particle="neutron" strength="0.05" type="independent">
+    <space origin="0.0 0.0 0.0" type="cylindrical">
+      <r parameters="3 5.0" type="uniform"/>
+      <phi parameters="0.0 6.283185307179586" type="uniform"/>
+      <z parameters="1.0 2.0" type="uniform"/>
+    </space>
+    <angle type="isotropic"/>
+    <energy type="discrete">
+      <parameters>14100000.0 1.0</parameters>
+    </energy>
+  </source>
+</settings>
