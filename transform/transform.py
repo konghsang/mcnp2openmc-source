@@ -3,6 +3,7 @@ import numpy as np
 from openmc.stats import CylindricalIndependent, Uniform
 import openmc.stats
 import re
+import warnings
 
 
 # 读取程序（读取mcnp输入文件中有源设置参数）
@@ -61,14 +62,21 @@ new_list_odd = list[::2]
 new_list_even = ["SP" + str(int(num)) + "D" for num in list[1::2]]
 sources = []
 
+# 创建 放射源的筛选域
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore", openmc.IDWarning)
+    cell_1 = openmc.Cell(1)
+    cell_10579 = openmc.Cell(10579)
+domain_cells = [cell_1, cell_10579]
+
 # 创建源项
 # --------------------------------------------------
-# 遍历径向环 (0,1,2)
+# 遍历径向环
 for r_idx in range(len(r_bins_SI2H) - 1):
     r_min = r_bins_SI2H[r_idx]
     r_max = r_bins_SI2H[r_idx + 1]
 
-    # 遍历轴向层 (0,1,2)
+    # 遍历轴向层
     for z_idx in range(len(z_bins_SI42H) - 1):
         z_min = z_bins_SI42H[z_idx]
         z_max = z_bins_SI42H[z_idx + 1]
@@ -85,20 +93,22 @@ for r_idx in range(len(r_bins_SI2H) - 1):
         # --------------------------------------------------
         source = openmc.IndependentSource()
         source.space = spatial
-
         z_bins_P = data.get(new_list_even[r_idx], [])
         source.strength = z_bins_P[z_idx + 1] * r_bins_SP2D[r_idx + 1]  # 设置概率
         source.energy = openmc.stats.muir(e0=14080000.0, m_rat=5.0, kt=10000.0)
         source.angle = openmc.stats.Isotropic()
+        source.constraints = {
+            "domains": domain_cells,  # 使用 constraints 字典包装
+        }
         sources.append(source)
-# 归一化总强度（可选，但推荐）
+# 归一化总强度
 total_strength = sum(src.strength for src in sources)
 for src in sources:
     src.strength /= total_strength
 settings = openmc.Settings()
 settings.run_mode = "fixed source"
 settings.batches = 1
-settings.particles = 100000
-settings.max_tracks = 100000
+settings.particles = 1000
+settings.max_tracks = 1000
 settings.source = sources
 settings.export_to_xml()
